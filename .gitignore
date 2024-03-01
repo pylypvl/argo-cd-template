@@ -49,3 +49,6 @@ Ignore access and secret keys
 *.ini
 *.env
 *.terraform.lock.hcl
+
+argo-cd*
+.terraform.lock.hcl
