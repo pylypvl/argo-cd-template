@@ -65,3 +65,41 @@ Integration: Integrates seamlessly with Git repositories, Kubernetes, and CI/CD 
 Policy Enforcement: Allows for policy-driven deployment strategies, including automated synchronization, health checks, and validation.
 
 In summary, Argo CD simplifies and streamlines the deployment process for Kubernetes applications while ensuring consistency, reliability, and scalability.
+
+
+
+When you want to update to another cluster or environment, you would have to make a copy of these two values for the alpha, beta, staging, and production environments, and paste them under these values. This should do the trick for us.
+
+module "argocd_dev" {
+  source           = "./terraform_argocd_eks"
+  eks_cluster_name = "gamania-dev"
+  chart_version    = "5.46.7"
+}
+
+
+#Can be deployed ONLY after ArgoCD deployment: depends_on = [module.argocd_dev]
+# module "argocd_dev_root" {
+#   source             = "./terraform_argocd_root_eks"
+#   eks_cluster_name   = "gamania-dev"
+#   git_source_path    = "demo-dev/applications"
+#   git_source_repoURL = git@github.com:pylypvl/Helm-charts-examples.git"
+# }
+
+Example:
+module "argocd_dev" {
+  source           = "./terraform_argocd_eks"
+  eks_cluster_name = "Gamania-prod"
+  chart_version    = "5.46.7"
+}
+
+
+#Can be deployed ONLY after ArgoCD deployment: depends_on = [module.argocd_dev]
+# module "argocd_dev_root" {
+#   source             = "./terraform_argocd_root_eks"
+#   eks_cluster_name   = "Gamania-prod"
+#   git_source_path    = "demo-prod/applications"
+#   git_source_repoURL = git@github.com:pylypvl/Helm-charts-examples.git"
+# }
+
+Unfortunately, I am sorry, I did not had enought time to test perfectly :(
+This should work in theory.
