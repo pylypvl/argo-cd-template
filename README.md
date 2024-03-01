@@ -101,5 +101,5 @@ module "argocd_dev" {
 #   git_source_repoURL = git@github.com:pylypvl/Helm-charts-examples.git"
 # }
 
-Unfortunately, I am sorry, I did not had enought time to test perfectly :(
+Unfortunately, I did not had enought time to test perfectly :(
 This should work in theory.
