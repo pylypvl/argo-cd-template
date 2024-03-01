@@ -20,11 +20,3 @@ resource "kubernetes_manifest" "argocd_root" {
     targetRevision = var.git_source_targetRevision
   }))
 }
-
-resource "kubernetes_manifest" "argocd_root-2" {
-  manifest = yamldecode(templatefile("${path.module}/root-2.yaml", {
-    path           = var.git_source_path
-    repoURL        = var.git_source_repoURL
-    targetRevision = var.git_source_targetRevision
-  }))
-}
