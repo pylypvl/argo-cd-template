@@ -48,4 +48,4 @@ Ignore access and secret keys
 *.conf
 *.ini
 *.env
-.terraform.lock.hcl
+*.terraform.lock.hcl
