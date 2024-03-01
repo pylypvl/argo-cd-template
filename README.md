@@ -1,1 +1,1 @@
-# argo-cd-template
+# argo-cd
